@@ -23,7 +23,7 @@ app.listen(5000, () => {
     if (err) throw err;
     console.log("1 document inserted");
    });
-    /*
+    
     app.post("/add", (request, response) => {
     collection.insert(request.body, (error, result) => {
         if(error) {
@@ -40,7 +40,7 @@ app.listen(5000, () => {
         response.send(result);
     });
 });
-     database.collection.createIndex( { "createdAt": 1 }, { Duration: 3600 } )*/
+     database.collection.createIndex( { "createdAt": 1 }, { Duration: 3600 } )
 
 });
     });
