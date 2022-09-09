@@ -15,16 +15,15 @@ One of the following versions of [Node.js](https://nodejs.org/en/download/) must
 
 
 
-### Acknowledgments
 
-* `npm` is configured to use the **npm Public Registry** at [https://registry.npmjs.org](https://registry.npmjs.org) by default; Usage of this registry is subject to **Terms of Use** available at [https://npmjs.com/policies/terms](https://npmjs.com/policies/terms)
-* You can configure `npm` to use any other compatible registry you prefer. You can read more about configuring third-party registries [here](https://docs.npmjs.com/cli/v7/using-npm/registry)
 
 ### OVERVIEW:-
 
-REST stands for REpresentational State Transfer. When a RESTful API is called, the server will transfer to the client a representation of the state of the requested resource. For example, when a developer calls OpenWeather API to fetch weather for a specific city (the resource), the API will return the state of that city, including the temperature, humidity, wind speed, current forecast, extended forecast, and more. The representation of the state can be in a JSON format, and for most web APIs, this is indeed the case. Other possible data formats include XML or HTML. What does the server does when you call it depends on two things that you need to provide to the server:
-1. An identifier for the resource. – This is the URL for the resource, also known as the endpoint. In fact, URL stands for Uniform Resource Locator.
-2. The operation you want the server to perform on that resource, in the form of an HTTP method. The common HTTP methods are GET, POST, PUT, and DELETE.
+REST stands for REpresentational State Transfer. When a RESTful API is called, the server will transfer to the client a representation of the state of the requested resource.  Other possible data formats include XML or HTML.
+Two things that you need to provide to the server:
+1. An identifier for the resource. – This is the URL for the resource, also known as the endpoint. 
+2. The operation you want the server to perform on that resource, in the form of an HTTP method. 
+    The common HTTP methods are GET, POST, PUT, and DELETE.
  ### Requirements::-
 created a file called app.js which will be the main entry point to the application, and we installed a few dependencies that are essential to start our application.
 These dependencies are:
@@ -32,14 +31,6 @@ These dependencies are:
 2. MongoDB: This is an official module provided by the MongoDB team to help our Node.js application communicate with MongoDB.
 3. body-parser: This package will allow us to handle request bodies with Express.
 4. Heroku: For deploying the code from the github.
-
-
-
-
-
-
-### Why use body-parser?
-Let’s say you are sending an HTML form data to Node.js server i.e. you made a request to the server. HTTP sends your form data in bits and pieces which are intended to get assembled as they reach their destination. To extract these bits and pieces of data and assemble it so it is in a format that can be useful, we use a body-parser middleware
 
 
 ### Running  the Application
@@ -83,7 +74,7 @@ const DATABASE_NAME = "accounting_department";
 ```
 
 ```
-/*
+
     app.post("/add", (request, response) => {
     collection.insert(request.body, (error, result) => {
         if(error) {
@@ -104,6 +95,8 @@ const DATABASE_NAME = "accounting_department";
 
 });
     });
- ```
+```
+ ![image](https://user-images.githubusercontent.com/90020603/189313384-00723409-68c5-43e5-86b7-b0ff0f9f4a0c.png)
+
  ### Lastly :
   I learned how to develop a custom API and connect it with MongoDB to fetch and manipulate the data. From here, you can take different steps. For instance, you can expand this project by adding more features like data validation to it. You can also improve the API security and salability by following Node.JS best practices
