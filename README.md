@@ -1,4 +1,4 @@
-# SDE-assignment
+# sde-assignment
 a REST API in Nodejs with MongoDb as database for creating  tasks with a duration (in minutes).
 
 Without a doubt, (Application Programming Interfaces) or APIs play a very important role in communication and data exchange between servers and services.
