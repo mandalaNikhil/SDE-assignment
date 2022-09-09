@@ -72,3 +72,74 @@ npm <command>
 #### Is "npm" an acronym for "Node Package Manager"?
 
 Contrary to popular belief, **`npm`** **is not** in fact an acronym for "Node Package Manager"; It is a recursive bacronymic abbreviation for **"npm is not an acronym"** (if the project was named "ninaa", then it would be an acronym). The precursor to **`npm`** was actually a bash utility named **"pm"**, which was the shortform name of **"pkgmakeinst"** - a bash function that installed various things on various platforms. If **`npm`** were to ever have been considered an acronym, it would be as "node pm" or, potentially "new pm".
+
+
+Why use body-parser?
+Let’s say you are sending an HTML form data to Node.js server i.e. you made a request to the server. HTTP sends your form data in bits and pieces which are intended to get assembled as they reach their destination. To extract these bits and pieces of data and assemble it so it is in a format that can be useful, we use a body-parser middleware
+
+
+Run the Application
+Let’s run the code for our application –
+```
+
+var app = Express();
+app.use(BodyParser.json());
+app.use(BodyParser.urlencoded({ extended: true }));
+var database, collection;
+var myobj = { Taskname: "Interview Assignment", Taskdescription: "Creating API and executing CRUD operations", Creator: "Nikhil" , Duration:3600  , CreatedAt:new Date()};
+app.listen(5000, () => {
+    MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true }, (error, client) => {
+        if(error) {
+            throw error;
+        }
+        database = client.db(DATABASE_NAME);
+        collection = database.collection("todo");
+        console.log("Connected to `" + DATABASE_NAME + "`!");
+        database
+.collection("todo").insertOne(myobj, function(err, res) {
+    if (err) throw err;
+    console.log("1 document inserted");
+   });
+   ```
+   4. Test the Application
+We can test the application by running the following:
+
+node app.js
+
+
+5. Establish Connection with MongoDB
+We will need the connection string for MongoDB. This can be found in the Atlas dashboard by choosing Clusters, then the Overview tab followed by the Connect button.
+```
+const Express = require("express");
+const BodyParser = require("body-parser");
+const MongoClient = require("mongodb").MongoClient;
+const ObjectId = require("mongodb").ObjectID;
+const CONNECTION_URL = "mongodb+srv://Nikhil:laxmi123456789@cluster0.ay8cntb.mongodb.net/?retryWrites=true&w=majority";
+const DATABASE_NAME = "accounting_department";
+```
+
+```
+/*
+    app.post("/add", (request, response) => {
+    collection.insert(request.body, (error, result) => {
+        if(error) {
+            return response.status(500).send(error);
+        }
+        response.send(result.result);
+    }); 
+});
+     app.get("/list", (request, response) => {
+    collection.find({}).toArray((error, result) => {
+        if(error) {
+            return response.status(500).send(error);
+        }
+        response.send(result);
+    });
+});
+     database.collection.createIndex( { "createdAt": 1 }, { Duration: 3600 } )*/
+
+});
+    });
+ ```
+ Lastly :
+  I learned how to develop a custom API and connect it with MongoDB to fetch and manipulate the data. From here, you can take different steps. For instance, you can expand this project by adding more features like data validation to it. You can also improve the API security and salability by following Node.JS best practices
