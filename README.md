@@ -1,60 +1,74 @@
-# sde-assignment
-a REST API in Nodejs with MongoDb as database for creating  tasks with a duration (in minutes).
+# npm - a JavaScript package manager
 
-Without a doubt, (Application Programming Interfaces) or APIs play a very important role in communication and data exchange between servers and services.
+[![npm version](https://img.shields.io/npm/v/npm.svg)](https://npm.im/npm)
+[![license](https://img.shields.io/npm/l/npm.svg)](https://npm.im/npm)
+[![CI - cli](https://github.com/npm/cli/actions/workflows/ci.yml/badge.svg)](https://github.com/npm/cli/actions/workflows/ci.yml)
+[![Benchmark Suite](https://github.com/npm/cli/actions/workflows/benchmark.yml/badge.svg)](https://github.com/npm/cli/actions/workflows/benchmark.yml)
 
+### Requirements
 
-From computers to smartphones and Internet of Things (IoT), applications talk and exchange info via APIs. Almost every day we use or interact with an API service, and many sites use a custom API to scale up their website. As such, learning how to develop a custom API adds lots of value to your developer profile.
+One of the following versions of [Node.js](https://nodejs.org/en/download/) must be installed to run **`npm`**:
 
-Motivated by the importance of APIs and the popularity of JavaScript (JS), I'd like to show you how to develop a REST API using Node.JS and MongoDB as database.
+* `12.x.x` >= `12.13.0`
+* `14.x.x` >= `14.15.0`
+* `16.0.0` or higher
 
-Overview:-
-we walk you through seven steps for developing a RESTFul API using popular JavaScript frameworks such as Node.JS and Express.JS. In doing so, we learn how to integrate our API with the MongoDB database.
+### Installation
 
-Rest API:
-REST stands for Representational State Transfer. 
-When a RESTful API is called, the server will transfer to the client a representation of the state of the requested resource.
-For example, when a developer calls OpenWeather API to fetch weather for a specific city (the resource), the API will return the state of that city, including the temperature, humidity, wind speed, current forecast, extended forecast, and more. The representation of the state can be in a JSON format, and for most web APIs, this is indeed the case. Other possible data formats include XML or HTML. What does the server does when you call it depends on two things that you need to provide to the server:
-1. An identifier for the resource. – This is the URL for the resource, also known as the endpoint. In fact, URL stands for Uniform Resource Locator.
-2. The operation you want the server to perform on that resource, in the form of an HTTP method. 
-3. The common  HTTP methods are GET, POST, PUT, and DELETE.
+**`npm`** comes bundled with [**`node`**](https://nodejs.org/), & most third-party distributions, by default. Officially supported downloads/distributions can be found at: [nodejs.org/en/download](https://nodejs.org/en/download)
 
-First Task:
-   CREATING TODO RECORD WITH A SPECIFIED SCHEME LIKE : - 1)Task name
-                                                         2)Task description
-                                                         3)Creator
-                                                         4)Duration
-                                                         5)createdAt
-                                                         
- ```
- {"_id":{"$oid":"631a0c67f4dff8fd0a35fa17"},
- "Taskname":"Interview Assignment",
- "Taskdescription":"Creating API and executing CRUD operations",
- "Creator":"Nikhil",
- "Duration":{"$numberInt":"3600"},
- "CreatedAt":{"$date":{"$numberLong":"1662651493393"}}}
- ```
- The code behind it:
- ```
- 
-var app = Express();
-app.use(BodyParser.json());
-app.use(BodyParser.urlencoded({ extended: true }));
-var database, collection;
-var myobj = { Taskname: "Interview Assignment", Taskdescription: "Creating API and executing CRUD operations", Creator: "Nikhil" , Duration:3600  , CreatedAt:new Date()};
-app.listen(5000, () => {
-    MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true }, (error, client) => {
-        if(error) {
-            throw error;
-        }
-        database = client.db(DATABASE_NAME);
-        collection = database.collection("todo");
-        console.log("Connected to `" + DATABASE_NAME + "`!");
-        database.collection("todo").insertOne(myobj, function(err, res) {
-    if (err) throw err;
-    console.log("1 document inserted");
-   });
-   ```
-   
-   
- 
+#### Direct Download
+
+You can download & install **`npm`** directly from [**npmjs**.com](https://npmjs.com/) using our custom `install.sh` script:
+
+```bash
+curl -qL https://www.npmjs.com/install.sh | sh
+```
+
+#### Node Version Managers
+
+If you're looking to manage multiple versions of **`node`** &/or **`npm`**, consider using a "Node Version Manager" such as:
+
+* [**`nvm`**](https://github.com/nvm-sh/nvm)
+* [**`nvs`**](https://github.com/jasongin/nvs)
+* [**`nave`**](https://github.com/isaacs/nave)
+* [**`n`**](https://github.com/tj/n)
+* [**`volta`**](https://github.com/volta-cli/volta)
+* [**`nodenv`**](https://github.com/nodenv/nodenv)
+* [**`asdf-nodejs`**](https://github.com/asdf-vm/asdf-nodejs)
+* [**`nvm-windows`**](https://github.com/coreybutler/nvm-windows)
+* [**`fnm`**](https://github.com/Schniz/fnm)
+
+### Usage
+
+```bash
+npm <command>
+```
+
+### Links & Resources
+
+* [**Documentation**](https://docs.npmjs.com/) - Official docs & how-tos for all things **npm**
+    * Note: you can also search docs locally with `npm help-search <query>`
+* [**Bug Tracker**](https://github.com/npm/cli/issues) - Search or submit bugs against the CLI
+* [**Roadmap**](https://github.com/orgs/github/projects/4247/views/1?filterQuery=npm) - Track & follow along with our public roadmap
+* [**Feedback**](https://github.com/npm/feedback) - Contribute ideas & discussion around the npm registry, website & CLI
+* [**RFCs**](https://github.com/npm/rfcs) - Contribute ideas & specifications for the API/design of the npm CLI
+* [**Service Status**](https://status.npmjs.org/) - Monitor the current status & see incident reports for the website & registry
+* [**Project Status**](https://npm.github.io/statusboard/) - See the health of all our maintained OSS projects in one view
+* [**Events Calendar**](https://calendar.google.com/calendar/u/0/embed?src=npmjs.com_oonluqt8oftrt0vmgrfbg6q6go@group.calendar.google.com) - Keep track of our Open RFC calls, releases, meetups, conferences & more
+* [**Support**](https://www.npmjs.com/support) - Experiencing problems with the **npm** [website](https://npmjs.com) or [registry](https://registry.npmjs.org)? File a ticket [here](https://www.npmjs.com/support)
+
+### Acknowledgments
+
+* `npm` is configured to use the **npm Public Registry** at [https://registry.npmjs.org](https://registry.npmjs.org) by default; Usage of this registry is subject to **Terms of Use** available at [https://npmjs.com/policies/terms](https://npmjs.com/policies/terms)
+* You can configure `npm` to use any other compatible registry you prefer. You can read more about configuring third-party registries [here](https://docs.npmjs.com/cli/v7/using-npm/registry)
+
+### FAQ on Branding
+
+#### Is it "npm" or "NPM" or "Npm"?
+
+**`npm`** should never be capitalized unless it is being displayed in a location that is customarily all-capitals (ex. titles on `man` pages).
+
+#### Is "npm" an acronym for "Node Package Manager"?
+
+Contrary to popular belief, **`npm`** **is not** in fact an acronym for "Node Package Manager"; It is a recursive bacronymic abbreviation for **"npm is not an acronym"** (if the project was named "ninaa", then it would be an acronym). The precursor to **`npm`** was actually a bash utility named **"pm"**, which was the shortform name of **"pkgmakeinst"** - a bash function that installed various things on various platforms. If **`npm`** were to ever have been considered an acronym, it would be as "node pm" or, potentially "new pm".
