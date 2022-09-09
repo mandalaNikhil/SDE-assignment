@@ -13,72 +13,36 @@ One of the following versions of [Node.js](https://nodejs.org/en/download/) must
 * `14.x.x` >= `14.15.0`
 * `16.0.0` or higher
 
-### Installation
 
-**`npm`** comes bundled with [**`node`**](https://nodejs.org/), & most third-party distributions, by default. Officially supported downloads/distributions can be found at: [nodejs.org/en/download](https://nodejs.org/en/download)
-
-#### Direct Download
-
-You can download & install **`npm`** directly from [**npmjs**.com](https://npmjs.com/) using our custom `install.sh` script:
-
-```bash
-curl -qL https://www.npmjs.com/install.sh | sh
-```
-
-#### Node Version Managers
-
-If you're looking to manage multiple versions of **`node`** &/or **`npm`**, consider using a "Node Version Manager" such as:
-
-* [**`nvm`**](https://github.com/nvm-sh/nvm)
-* [**`nvs`**](https://github.com/jasongin/nvs)
-* [**`nave`**](https://github.com/isaacs/nave)
-* [**`n`**](https://github.com/tj/n)
-* [**`volta`**](https://github.com/volta-cli/volta)
-* [**`nodenv`**](https://github.com/nodenv/nodenv)
-* [**`asdf-nodejs`**](https://github.com/asdf-vm/asdf-nodejs)
-* [**`nvm-windows`**](https://github.com/coreybutler/nvm-windows)
-* [**`fnm`**](https://github.com/Schniz/fnm)
-
-### Usage
-
-```bash
-npm <command>
-```
-
-### Links & Resources
-
-* [**Documentation**](https://docs.npmjs.com/) - Official docs & how-tos for all things **npm**
-    * Note: you can also search docs locally with `npm help-search <query>`
-* [**Bug Tracker**](https://github.com/npm/cli/issues) - Search or submit bugs against the CLI
-* [**Roadmap**](https://github.com/orgs/github/projects/4247/views/1?filterQuery=npm) - Track & follow along with our public roadmap
-* [**Feedback**](https://github.com/npm/feedback) - Contribute ideas & discussion around the npm registry, website & CLI
-* [**RFCs**](https://github.com/npm/rfcs) - Contribute ideas & specifications for the API/design of the npm CLI
-* [**Service Status**](https://status.npmjs.org/) - Monitor the current status & see incident reports for the website & registry
-* [**Project Status**](https://npm.github.io/statusboard/) - See the health of all our maintained OSS projects in one view
-* [**Events Calendar**](https://calendar.google.com/calendar/u/0/embed?src=npmjs.com_oonluqt8oftrt0vmgrfbg6q6go@group.calendar.google.com) - Keep track of our Open RFC calls, releases, meetups, conferences & more
-* [**Support**](https://www.npmjs.com/support) - Experiencing problems with the **npm** [website](https://npmjs.com) or [registry](https://registry.npmjs.org)? File a ticket [here](https://www.npmjs.com/support)
 
 ### Acknowledgments
 
 * `npm` is configured to use the **npm Public Registry** at [https://registry.npmjs.org](https://registry.npmjs.org) by default; Usage of this registry is subject to **Terms of Use** available at [https://npmjs.com/policies/terms](https://npmjs.com/policies/terms)
 * You can configure `npm` to use any other compatible registry you prefer. You can read more about configuring third-party registries [here](https://docs.npmjs.com/cli/v7/using-npm/registry)
 
-### FAQ on Branding
+### OVERVIEW:-
 
-#### Is it "npm" or "NPM" or "Npm"?
+REST stands for REpresentational State Transfer. When a RESTful API is called, the server will transfer to the client a representation of the state of the requested resource. For example, when a developer calls OpenWeather API to fetch weather for a specific city (the resource), the API will return the state of that city, including the temperature, humidity, wind speed, current forecast, extended forecast, and more. The representation of the state can be in a JSON format, and for most web APIs, this is indeed the case. Other possible data formats include XML or HTML. What does the server does when you call it depends on two things that you need to provide to the server:
+1. An identifier for the resource. – This is the URL for the resource, also known as the endpoint. In fact, URL stands for Uniform Resource Locator.
+2. The operation you want the server to perform on that resource, in the form of an HTTP method. The common HTTP methods are GET, POST, PUT, and DELETE.
+ ### Requirements::-
+created a file called app.js which will be the main entry point to the application, and we installed a few dependencies that are essential to start our application.
+These dependencies are:
+1. Express: This is a Node.js framework.
+2. MongoDB: This is an official module provided by the MongoDB team to help our Node.js application communicate with MongoDB.
+3. body-parser: This package will allow us to handle request bodies with Express.
+4. Heroku: For deploying the code from the github.
 
-**`npm`** should never be capitalized unless it is being displayed in a location that is customarily all-capitals (ex. titles on `man` pages).
-
-#### Is "npm" an acronym for "Node Package Manager"?
-
-Contrary to popular belief, **`npm`** **is not** in fact an acronym for "Node Package Manager"; It is a recursive bacronymic abbreviation for **"npm is not an acronym"** (if the project was named "ninaa", then it would be an acronym). The precursor to **`npm`** was actually a bash utility named **"pm"**, which was the shortform name of **"pkgmakeinst"** - a bash function that installed various things on various platforms. If **`npm`** were to ever have been considered an acronym, it would be as "node pm" or, potentially "new pm".
 
 
-Why use body-parser?
+
+
+
+### Why use body-parser?
 Let’s say you are sending an HTML form data to Node.js server i.e. you made a request to the server. HTTP sends your form data in bits and pieces which are intended to get assembled as they reach their destination. To extract these bits and pieces of data and assemble it so it is in a format that can be useful, we use a body-parser middleware
 
 
-Run the Application
+### Running  the Application
 Let’s run the code for our application –
 ```
 
@@ -107,7 +71,7 @@ We can test the application by running the following:
 node app.js
 
 
-5. Establish Connection with MongoDB
+### Establish Connection with MongoDB
 We will need the connection string for MongoDB. This can be found in the Atlas dashboard by choosing Clusters, then the Overview tab followed by the Connect button.
 ```
 const Express = require("express");
@@ -141,5 +105,5 @@ const DATABASE_NAME = "accounting_department";
 });
     });
  ```
- Lastly :
+ ### Lastly :
   I learned how to develop a custom API and connect it with MongoDB to fetch and manipulate the data. From here, you can take different steps. For instance, you can expand this project by adding more features like data validation to it. You can also improve the API security and salability by following Node.JS best practices
